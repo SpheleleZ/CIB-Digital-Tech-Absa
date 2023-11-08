@@ -30,7 +30,6 @@ public class UserListTableSteps extends BaseTest {
        userListTablePage.setAddUserButton();
     }
 
-
     @When("^enters  (.*) and (.*) and (.*) then (.*)$")
     public void enters_and_and_then(String fname,String lname,String username,String password) {
         userListTablePage.setFirstNameInputField(fname);
@@ -38,8 +37,9 @@ public class UserListTableSteps extends BaseTest {
         userListTablePage.setUserNameInputField(username);
         userListTablePage.setPasswordInputField(password);
     }
-    @And("^select (.*) and (.*) and (.*) also (.*)$")
-    public void select_and_and_also(String customer,String role,String email,Integer cell) {
+
+    @And("^select (.*) after select (.*) and enter (.*) and (.*)$")
+    public void select_after_select_and_enter_and(String customer,String role,String email,String cell){
         userListTablePage.setCustomerField(customer);
         userListTablePage.setSelectRole(role);
         userListTablePage.setEmailInputField(email);
@@ -49,5 +49,15 @@ public class UserListTableSteps extends BaseTest {
     @Then("^click on save$")
     public void click_on_save() {
       userListTablePage.setSaveUserButton();
+    }
+
+    @Then("^verify user is added to the list using (.*)$")
+    public void verify_user_is_added_to_the_list_using(String fname) {
+        assertTrue(userListTablePage.setVerifyUserAdded(fname),"User in not added to the list");
+    }
+
+    @And("^close the browser$")
+    public void close_the_browser() {
+        tearDownMethod();
     }
 }

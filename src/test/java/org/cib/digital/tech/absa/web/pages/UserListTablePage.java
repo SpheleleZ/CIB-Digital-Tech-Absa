@@ -45,7 +45,7 @@ public class UserListTablePage {
     @CacheLookup
     WebElement customerFieldBBB;
 
-    @FindBy( name = "RoleId")
+    @FindBy( xpath = "//select[@name=\"RoleId\"]")
     @CacheLookup
     WebElement selectRole;
 
@@ -60,6 +60,12 @@ public class UserListTablePage {
     @FindBy( xpath = "//button[text()=\"Save\"]")
     @CacheLookup
     WebElement saveUserButton;
+
+    @FindBy( xpath = "(//td[@class=\"smart-table-data-cell\"])[1]")
+    @CacheLookup
+    WebElement verifyUserAdded;
+
+
 
     public UserListTablePage(WebDriver driver){
         this.driver = driver;
@@ -110,7 +116,7 @@ public class UserListTablePage {
    public void setSelectRole(String role){
         waitHelper.WaitForElement(selectRole,20);
        Select selectRoles = new Select(selectRole);
-       selectRoles.selectByValue(role);
+       selectRoles.selectByVisibleText(role);
    }
 
    public void setEmailInputField(String email){
@@ -118,13 +124,20 @@ public class UserListTablePage {
         emailInputField.sendKeys(email);
    }
 
-   public void setCellPhoneInputField(int cell){
+   public void setCellPhoneInputField(String cell){
         waitHelper.WaitForElement(cellPhoneInputField,20);
-        cellPhoneInputField.sendKeys(""+ cell);
+        cellPhoneInputField.sendKeys(cell);
    }
 
    public void setSaveUserButton(){
         waitHelper.WaitForElement(saveUserButton,20);
         saveUserButton.click();
+   }
+
+   public boolean setVerifyUserAdded(String firstName){
+        String fname;
+        waitHelper.WaitForElement(verifyUserAdded,20);
+        fname = verifyUserAdded.getText();
+       return fname.contentEquals(firstName);
    }
 }
