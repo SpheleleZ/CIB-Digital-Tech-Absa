@@ -49,4 +49,21 @@ public class DogApiTest {
             System.out.println("Verify - " + retrieve + " is within List");
         }
     }
+
+    @Test
+    public void getRequestToProduceAListOfSubBreedsForRetriever(){
+
+        baseURI = "https://dog.ceo/api/";
+
+        given()
+                .contentType(ContentType.JSON)
+                .pathParam("myPath", "breed")
+                .pathParam("myPath1", "retriever")
+                .pathParam("myPath2", "list")
+                .when()
+                .get("{myPath}/{myPath1}/{myPath2}")
+                .then()
+                .statusCode(200)
+                .log().body();
+    }
 }
