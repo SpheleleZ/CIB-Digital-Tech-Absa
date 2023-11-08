@@ -7,8 +7,8 @@ Feature: CIB Digital Tech User List Table
     And click on add user
 
   Scenario Outline: Test if user can be added to the table
-    When enters  <firstName> <lastName> <userName> and <password>
-    And select <customer>  <role> <email> and <cellPhone>
+    When enters  <firstName> and <lastName> and <userName> then <password>
+    And select <customer> and <role> and <email> also <cellPhone>
     Then click on save
 
     Examples:

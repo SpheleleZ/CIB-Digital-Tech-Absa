@@ -118,9 +118,9 @@ public class UserListTablePage {
         emailInputField.sendKeys(email);
    }
 
-   public void setCellPhoneInputField(String cell){
+   public void setCellPhoneInputField(int cell){
         waitHelper.WaitForElement(cellPhoneInputField,20);
-        cellPhoneInputField.sendKeys(cell);
+        cellPhoneInputField.sendKeys(""+ cell);
    }
 
    public void setSaveUserButton(){
