@@ -85,21 +85,25 @@ public class UserListTablePage {
 
    public void setFirstNameInputField(String fname){
         waitHelper.WaitForElement(firstNameInputField,20);
+        firstNameInputField.clear();
         firstNameInputField.sendKeys(fname);
    }
 
    public void setLastNameInputField(String lname){
         waitHelper.WaitForElement(lastNameInputField,20);
+        lastNameInputField.clear();
         lastNameInputField.sendKeys(lname);
    }
 
    public void setUserNameInputField(String username){
         waitHelper.WaitForElement(userNameInputField,20);
+        userNameInputField.clear();
         userNameInputField.sendKeys(username);
    }
 
    public void setPasswordInputField(String password){
         waitHelper.WaitForElement(passwordInputField,20);
+        passwordInputField.clear();
         passwordInputField.sendKeys(password);
    }
 
@@ -121,11 +125,13 @@ public class UserListTablePage {
 
    public void setEmailInputField(String email){
         waitHelper.WaitForElement(emailInputField,20);
+        emailInputField.clear();
         emailInputField.sendKeys(email);
    }
 
    public void setCellPhoneInputField(String cell){
         waitHelper.WaitForElement(cellPhoneInputField,20);
+        cellPhoneInputField.clear();
         cellPhoneInputField.sendKeys(cell);
    }
 
