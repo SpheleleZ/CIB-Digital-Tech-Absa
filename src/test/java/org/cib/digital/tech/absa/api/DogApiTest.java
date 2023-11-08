@@ -66,4 +66,21 @@ public class DogApiTest {
                 .statusCode(200)
                 .log().body();
     }
+
+    @Test
+    public void getRequestToProduceARandomImageOrLinkForTheSubBreedGolden(){
+
+        baseURI = "https://dog.ceo/api/";
+
+        given()
+                .contentType(ContentType.JSON)
+                .pathParam("myPath", "breeds")
+                .pathParam("myPath1", "image")
+                .pathParam("myPath2", "random")
+                .when()
+                .get("{myPath}/{myPath1}/{myPath2}")
+                .then()
+                .statusCode(200)
+                .log().body();
+    }
 }
